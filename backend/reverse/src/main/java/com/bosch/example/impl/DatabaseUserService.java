@@ -4,13 +4,13 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.bosch.example.model.User;
 import com.bosch.example.repositories.UserJPARepository;
 import com.bosch.example.services.CreateService;
 
-
+@RestController
 public class DatabaseUserService implements CreateService{
 
     @Autowired
@@ -73,6 +73,13 @@ public class DatabaseUserService implements CreateService{
 
         return true;
     }
+
+    @Override
+    public void save(User user) {
+        repo.save(user);
+    }
+
+    
 
 
     

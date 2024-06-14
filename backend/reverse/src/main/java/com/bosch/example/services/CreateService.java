@@ -9,4 +9,5 @@ public interface CreateService {
     Boolean checkPassword(User user);
     Boolean checkEmail(User user);
     Boolean isValidEmail(User user);
+    void save(User user);
 } 

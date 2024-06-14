@@ -43,7 +43,8 @@ public class CreateController {
             
         }
 
-        return "Usuario criado com sucesso";  
+        repo.save(user);
+        return "Usuario criado com sucesso"; 
     
     }
 }
