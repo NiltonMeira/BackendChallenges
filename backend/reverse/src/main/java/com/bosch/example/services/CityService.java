@@ -1,6 +1,5 @@
 package com.bosch.example.services;
 
-import org.hibernate.mapping.List;
 
 import com.bosch.example.model.City;
 

@@ -10,4 +10,6 @@ public interface CreateService {
     Boolean checkEmail(User user);
     Boolean isValidEmail(User user);
     void save(User user);
+    List<User> findUser(String name);
+    List<User> findEmail(String email);
 } 

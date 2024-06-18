@@ -1,6 +1,7 @@
 package com.bosch.example.impl;
 
 import java.util.regex.Pattern;
+import java.util.List;
 import java.util.regex.Matcher;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +78,16 @@ public class DatabaseUserService implements CreateService{
     @Override
     public void save(User user) {
         repo.save(user);
+    }
+
+    @Override
+    public List<User> findUser(String name) {
+        return repo.findByUsername(name);
+    }
+
+    @Override
+    public List<User> findEmail(String email) {
+        return repo.findByEmail(email);
     }
 
     

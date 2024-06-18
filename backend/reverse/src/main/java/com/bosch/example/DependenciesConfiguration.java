@@ -4,14 +4,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import com.bosch.example.controllers.CreateController;
 import com.bosch.example.impl.DatabaseCityService;
 import com.bosch.example.impl.DatabaseUserService;
 import com.bosch.example.impl.IMPLCollatzService;
+import com.bosch.example.impl.IMPLLoginService;
 import com.bosch.example.impl.IMPLNumberService;
+import com.bosch.example.impl.IMPLPassService;
 import com.bosch.example.impl.IMPLReverseService;
+import com.bosch.example.impl.KeypairManager;
 import com.bosch.example.services.CityService;
 import com.bosch.example.services.CreateService;
+import com.bosch.example.services.LoginService;
+import com.bosch.example.services.PassService;
 
 @Configuration
 public class DependenciesConfiguration {
@@ -44,6 +48,24 @@ public class DependenciesConfiguration {
     @Scope("singleton")
     public CreateService createService(){
         return new DatabaseUserService();
+    }
+
+    @Bean
+    @Scope("singleton")
+    public PassService passService(){
+        return new IMPLPassService();
+    }
+
+    @Bean
+    @Scope("singleton")
+    public LoginService loginService(){
+        return new IMPLLoginService();
+    }
+
+    @Bean
+    @Scope("singleton")
+    public KeypairManager keyService(){
+        return new KeypairManager();
     }
 
 
